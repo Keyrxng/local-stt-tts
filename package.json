@@ -1,8 +1,12 @@
 {
   "name": "local-stt-tts",
+  "description": "Local speech-to-text and text-to-speech with Whisper and Orpheus",
   "module": "src/main.ts",
   "type": "module",
-  "private": true,
+  "author": {
+    "name": "Keyrxng",
+    "email": "keyrxng@proton.me"
+  },
   "scripts": {
     "t": "bun build --target=node --outfile=bundle.js ./t.ts"
   },
