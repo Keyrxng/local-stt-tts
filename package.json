@@ -1,15 +1,10 @@
 {
   "name": "local-stt-tts",
-  "module": "index.ts",
+  "module": "src/main.ts",
   "type": "module",
   "private": true,
-  "devDependencies": {
-    "@types/bun": "latest",
-    "@types/glob": "^9.0.0",
-    "@types/node": "^24.3.0"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
+  "scripts": {
+    "t": "bun build --target=node --outfile=bundle.js ./t.ts"
   },
   "dependencies": {
     "@ai-sdk/openai": "^2.0.23",
@@ -17,5 +12,13 @@
     "ai": "^5.0.28",
     "ollama": "^0.5.17",
     "wavefile": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/glob": "^9.0.0",
+    "@types/node": "^24.3.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
   }
 }
