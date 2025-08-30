@@ -1,14 +1,13 @@
+import { playAudio } from "./src/audio/play-audio";
 import { recordAudio } from "./src/audio/record-audio";
-import { PvRecorder } from "@picovoice/pvrecorder-node";
 
 async function main(){
-    const devices = PvRecorder.getAvailableDevices();
-    console.log("Devices:", devices);
-
-    recordAudio({
+    const path = await recordAudio({
         seconds: 5,
         outputPath: "./output.wav"
     });
+
+    await playAudio(path);
 }
 
 main().catch(console.error);
