@@ -64,7 +64,7 @@ async function lmStudioChatComplete(model: string, messages: ChatMessage[]): Pro
     return { text, raw: json };
 }
 
-export async function generateLocalText(args: BaseGenerateArgs): Promise<GenerateResult> {
+async function generateLocalText(args: BaseGenerateArgs): Promise<GenerateResult> {
     const { provider, model, prompt, messages, stream = false } = args;
     ensure(prompt, messages);
 
