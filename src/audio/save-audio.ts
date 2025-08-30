@@ -1,5 +1,5 @@
 import type { PvRecorder } from "@picovoice/pvrecorder-node";
-import { writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { WaveFile } from "wavefile";
@@ -35,4 +35,16 @@ export async function writeWavFile({
     } catch (error) {
         return Promise.reject(error);
     }
+}
+
+export async function writeWavBuffer(audioBuffer: Buffer, outputPath?: string) {
+    const audioDir = path.resolve(outputPath || tmpdir());
+    const filePath = outputPath || path.join(audioDir, `tts_${Date.now()}.wav`);
+
+    if (!existsSync(audioDir)){
+        mkdirSync(audioDir, { recursive: true });
+    }
+
+    writeFileSync(filePath, audioBuffer);
+    return filePath;
 }

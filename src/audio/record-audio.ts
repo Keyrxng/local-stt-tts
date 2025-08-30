@@ -1,6 +1,6 @@
 import { PvRecorder } from "@picovoice/pvrecorder-node";
 import { stdin } from "node:process";
-import { writeWavFile } from "./write-wav";
+import { writeWavFile } from "./save-audio";
 
 type RecordAudioParams = {
     seconds: number;

@@ -10,7 +10,13 @@ const OLLAMA_HOST = process.env.OLLAMA_HOST || process.env.OLLAMA_PROXY_ADDRESS;
 // Ollama native client
 const ollama = new OllamaClient(OLLAMA_HOST ? { host: OLLAMA_HOST } : {});
 
-export async function generateText(provider: "lmstudio" | "ollama", model: string, promptOrMessages: string | ChatMessage[], thinking: ThinkingModel, stream = false) {
+export async function generateText({ provider, model, promptOrMessages, thinking, stream = false }: {
+    provider: "lmstudio" | "ollama";
+    model: string;
+    promptOrMessages: string | ChatMessage[];
+    thinking: ThinkingModel;
+    stream?: boolean;
+}) {
     if (provider === "lmstudio") {
         return parseLlmResponse(await lmStudioGenerate(model, promptOrMessages, thinking, stream));
     } else {
