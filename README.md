@@ -173,10 +173,6 @@ Local TTS speed depends heavily on hardware (CPU/GPU availability, quantization,
 1. Confirm model quantization / size is ideal (use a smaller or quantized Orpheus variant if available).
 2. Pre‑warm the model (send a short dummy request on startup).
 
-## Error handling & resilience
-
-`withRetry` implements exponential backoff (configurable attempts). Whisper + playback failures surface with contextual error messages (`AIServiceError`). This is intentionally lightweight; feel free to extend with structured logging.
-
 ## Roadmap / ideas
 
 - Streaming microphone → incremental Whisper decoding
@@ -198,7 +194,8 @@ Local TTS speed depends heavily on hardware (CPU/GPU availability, quantization,
 - [Ollama](https://ollama.com)
 - [LM Studio](https://lmstudio.ai)
 - [PvRecorder](https://github.com/Picovoice/pvrecorder)
-- Community TTS projects / endpoints
+- [Orpheus TTS FastAPI](https://github.com/pinokiofactory/Orpheus-TTS-FastAPI)
+- [Pinokio](https://pinokio.co/)
 
 ## License
 

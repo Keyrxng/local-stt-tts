@@ -18,6 +18,7 @@ async function main() {
     });
 
     const llmResponse = await generateText({
+        tools: [],
         provider: "ollama",
         model: "deepseek-r1:1.5b",
         promptOrMessages: [
