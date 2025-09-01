@@ -61,3 +61,17 @@ export interface BaseEmbeddingArgs {
   model: string;
   input: string;
 }
+
+export interface VisionEmbeddingArgs extends BaseEmbeddingArgs {
+  images?: string[]; // Base64 encoded images or image URLs
+  prompt?: string; // Optional text prompt to accompany images
+}
+
+export interface VisionEmbeddingResult extends EmbeddingResult {
+  imageCount?: number;
+  processedImages?: string[];
+  // The raw LLM output (parsed JSON or raw text)
+  llmOutput?: any;
+  // The canonical text that was actually embedded (if different from raw LLM output)
+  textToEmbed?: string;
+}
